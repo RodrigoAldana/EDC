@@ -74,10 +74,13 @@ faster local signals -> increase "r" -> decrease time step "h"
 ### **REDCHO**
 A similar tunning rule as in EDCHO. Here, the "k0,...,km" gains are chosen similarly, with a scale factor "r". However, a new set of gains "g0,...,gm" are introduced. For simplicity, we can set g = g0 = ... = gm. We have found no advantage of using different gains yet. Thus, we have an interplay between the following quantities:
 
--*Local signals dynamics*: how fast these signals change. In the case of sinusoidal, this is determined by the frequency and amplotude of the singals.
--*scale factor "r"*: Scale to increase "k0,...,km". Determines the converges towards consensus.
--*gain g*: Gain for "g0,...,gm". A bigger value of g makes the mismatch in the initial conditions vanish faster.
--*time step h*: determines the Euler step in the simulation.
+- *Local signals dynamics*: how fast these signals change. In the case of sinusoidal, this is determined by the frequency and amplotude of the singals.
+
+- *scale factor "r"*: Scale to increase "k0,...,km". Determines the converges towards consensus.
+
+- *gain g*: Gain for "g0,...,gm". A bigger value of g makes the mismatch in the initial conditions vanish faster.
+
+- *time step h*: determines the Euler step in the simulation.
 Increasing "g" makes the protocol converge faster when initial conditions are arbitrary. However, bigger "g", require bigger "r". Thus the tunning procedure consist on iterating over the following rules
 
 faster local signals -> increase "r" -> decrease time step "h"
