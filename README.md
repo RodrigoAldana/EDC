@@ -29,21 +29,27 @@ We provide several test files to showcase disctinct aspects of the EDC protocols
 asd
 
 - >edcho_components_vs_vector.m
+
 asd
 
 - >edcho_derivatives.m
+
 asd
 
 - >redcho_standard_dynamic_consensus.m
+
 asd
 
 - >redcho_derivatives.m
+
 asd
 
 - >modulating_standard_test.m
+
 asd
 
 - >mdvo_standard_test.m
+
 asd
 
 
