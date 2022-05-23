@@ -70,7 +70,7 @@ The previous is motivated by a similar tunning procedure working for the standar
 
 **Time step vs. r tradeoff vs. local signals dynamics**: As the local signals change faster, this will require higher gains. Hence, when setting faster signals, one can increase "r" directly. However, big signals may cause significant numerical chattering, mainly at the high order states. Thus, the time step may be decresed to counteract the chattering. The previous is equivalent to increasing the frequency of communication between nodes. This rule can be summarized as iterating over:
 
-faster local signals -> increase "r" -> decrease time step "h"
+>faster local signals -> increase "r" -> decrease time step "h"
 
 ### **REDCHO**
 A similar tunning rule as in EDCHO. Here, the "k0,...,km" gains are chosen similarly, with a scale factor "r". However, a new set of gains "g0,...,gm" are introduced. For simplicity, we can set g = g0 = ... = gm. We have found no advantage of using different gains yet. Thus, we have an interplay between the following quantities:
@@ -84,7 +84,8 @@ A similar tunning rule as in EDCHO. Here, the "k0,...,km" gains are chosen simil
 - *time step h*: determines the Euler step in the simulation.
 Increasing "g" makes the protocol converge faster when initial conditions are arbitrary. However, bigger "g", require bigger "r". Thus the tunning procedure consist on iterating over the following rules
 
-faster local signals -> increase "r" -> decrease time step "h"
-bigger "g" -> increase "r" -> decrease time step "h"
+>faster local signals -> increase "r" -> decrease time step "h"
+
+>bigger "g" -> increase "r" -> decrease time step "h"
 
 
