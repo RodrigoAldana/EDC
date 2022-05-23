@@ -54,7 +54,7 @@ freq = zeros(n,1);
 phase = zeros(n,1);
 
 modulating('init',m);
-[t,X_l] = ode0(@dyn_modulated_redcho,[0,T],x0,h);
+[t,X_l] = ode0(@dyn_redcho_modulated,[0,T],x0,h);
 
 
 % Use modulated REDCHO for the average of signals 
@@ -65,7 +65,7 @@ amp = [ zeros(n-n_leaders,1) ; rand(n_leaders,1) ];
 phase = [ zeros(n-n_leaders,1) ; rand(n_leaders,1) ];
 
 modulating('init',m);
-[t,X_s] = ode0(@dyn_modulated_redcho,[0,T],x0,h);
+[t,X_s] = ode0(@dyn_redcho_modulated,[0,T],x0,h);
 
 % Subsample to only 1000 samples in order to aid the plot function
 ss = floor(numel(t)/1000);

@@ -49,7 +49,7 @@ h = 5e-4; % time step
 
 % Use modulated REDCHO
 modulating('init',m);
-[t,X] = ode0(@dyn_modulated_redcho,[0,T],x0,h);
+[t,X] = ode0(@dyn_redcho_modulated,[0,T],x0,h);
 
 % Subsample to only 100 samples in order to aid the plot function
 ss = floor(numel(t)/100);

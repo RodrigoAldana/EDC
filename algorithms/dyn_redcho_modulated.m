@@ -1,5 +1,5 @@
-function dX = dyn_modulated_redcho( t,x )
-% dyn_modulated_redcho: dynamics of the REDCHO protocol internal 
+function dX = dyn_redcho_modulated( t,x )
+% dyn_redcho_modulated: dynamics of the REDCHO protocol internal 
 % variables with modulation function. This version achieves dynamic 
 % consensus towards the average of time-varying signals in a prescribed
 % time. Test signals are always persistent signals of the form A*cos(w*t). 
