@@ -68,7 +68,7 @@ The gains "k0,...,km" are chosen as coefficients of a Hurtwitz polynomial, just 
 
 The previous is motivated by a similar tunning procedure working for the standard homogeneous differentiator. 
 
-**Time step vs. r tradeoff vs. local signals dynamics**: As local signals change faster, higher gains will be required. Hence, when setting faster signals, one can increase "r" directly. However, big signals may cause significant numerical chattering, mainly at the high order states. Thus, the time step may be decreased to counteract the chattering. The previous is equivalent to increasing the frequency of communication between nodes. This rule can be summarized as iterating over:
+**Time step vs. "r" vs. local signals dynamics tradeoff**: As local signals change faster, higher gains will be required. Hence, when setting faster signals, one can increase "r" directly. However, big signals may cause significant numerical chattering, mainly at the high order states. Thus, the time step may be decreased to counteract the chattering. The previous is equivalent to increasing the frequency of communication between nodes. This rule can be summarized as iterating over:
 
 >faster local signals -> increase "r" -> decrease time step "h"
 
