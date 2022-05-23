@@ -63,6 +63,7 @@ In the test files, we already provide some parameters which work well in most ca
 The gains "k0,...,km" are chosen as coefficients of a Hurtwitz polynomial, just as if it was a linear observer. Moreover, we use a scale value "r" to move the fictitious poles "r" times to the left (increasing the gains k0,...,km) accordingly. For example, if m=4, the polynomial with coefficients 1,10,35,50,4 has poles at -1,-2,-3,-4. Hence, we can set the gains as:
 
 >r = 2; % gain scaling
+>
 >k = [24,50,35,10].*[r^1, r^2 , r^3, r^4];
 
 The previous is motivated by a similar tunning procedure working for the standard homogeneous differentiator. 
