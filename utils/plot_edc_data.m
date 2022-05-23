@@ -8,6 +8,9 @@ function plot_edc_data(t, x, mu, plot_type)
 %       plot_type: which is 'raw' for outputs as they are
 %                  and 'error' to plot the error signal instead
 
+% Copyright (c) 2022 Rodrigo Aldana López, Universidad de Zaragoza, Spain. All rights reserved
+% Licensed under the MIT license. See LICENSE.txt file in the project root for details.
+
 global A;
 global freq;
 global amp;

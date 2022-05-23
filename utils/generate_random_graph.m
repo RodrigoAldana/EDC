@@ -10,6 +10,9 @@ function [adjacency,laplacian,incidence] = generate_random_graph(N,p)
 % OUTPUTS:
 %       adjacency, Laplacian and Incidence matrices for the graph.
 
+% Copyright (c) 2022 Rodrigo Aldana López, Universidad de Zaragoza, Spain. All rights reserved
+% Licensed under the MIT license. See LICENSE.txt file in the project root for details.
+
 % higher the p, the more connected the graph. For lower p the function may take longer to find a connected graph of that size. Fo higher N, the function may finish earlier than lower N for p near 0.
 laplacian = zeros(N);
 p = p/2;

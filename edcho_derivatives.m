@@ -1,3 +1,6 @@
+% Copyright (c) 2022 Rodrigo Aldana López, Universidad de Zaragoza, Spain. All rights reserved
+% Licensed under the MIT license. See LICENSE.txt file in the project root for details.
+
 addpath('algorithms')
 addpath('utils')
 close all; clear all; clc;

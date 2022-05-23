@@ -8,6 +8,9 @@ function dx = dyn_edcho_components( t,x )
 % implementation of the protocol, where each agent adds the 
 % correction terms per neighbor.
 
+% Copyright (c) 2022 Rodrigo Aldana López, Universidad de Zaragoza, Spain. All rights reserved
+% Licensed under the MIT license. See LICENSE.txt file in the project root for details.
+
 global A; % adjacency matrix
 global m; % system order
 global k; % system gains

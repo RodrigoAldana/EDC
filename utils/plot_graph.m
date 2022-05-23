@@ -1,6 +1,9 @@
 function plot_graph( A )
 % plot_graph: Plots an undirected graph given by adjacency matrix.
 
+% Copyright (c) 2022 Rodrigo Aldana López, Universidad de Zaragoza, Spain. All rights reserved
+% Licensed under the MIT license. See LICENSE.txt file in the project root for details.
+
 n=size(A,1);
 
 % Points in a circle corresponds to nodes in the graph

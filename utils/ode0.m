@@ -6,6 +6,10 @@ function [t,x] = ode0(sys, inter,x0,h)
 %   inter: time interval to obtain solution
 %   x0:    initial condition
 %   h:     discretization time step
+
+% Copyright (c) 2022 Rodrigo Aldana López, Universidad de Zaragoza, Spain. All rights reserved
+% Licensed under the MIT license. See LICENSE.txt file in the project root for details.
+
 t = inter(1):h:inter(end);
 x = zeros(numel(t), numel(x0));
 x(1,:) = x0';

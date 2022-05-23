@@ -9,6 +9,9 @@ function dX = dyn_edcho_vectorial( t,x )
 % is used. The result is (algebraically) identical to the 
 % other version in dyn_edcho_components.m
 
+% Copyright (c) 2022 Rodrigo Aldana López, Universidad de Zaragoza, Spain. All rights reserved
+% Licensed under the MIT license. See LICENSE.txt file in the project root for details.
+
 global D;
 global m; % system order
 global k; % system gains

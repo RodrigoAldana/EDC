@@ -16,7 +16,9 @@ global phase;
 
 % Protocol parameters (gains and order)
 global k;
+global g;
 global m;
+global Tc;
 %% Generate random network
 n = 10;
 p= 0.2;
@@ -34,39 +36,39 @@ phase = rand(n,1);
 m = 4;
 r = 2; % gain scaling
 k = [24,50,35,10].*[r^1, r^2 , r^3, r^4];
+g = [1,1,1,1]*2;
+Tc = 1;
 
 % Initial conditions
-x0 = 20*(rand(n,m)-0.5); % one row per agent, with m components each
-
-% Account for assumption that sum_i x_{i,\mu} = 0 (initial orthogonality to vector of ones)
-for mu = 1 : m
-   x0(1,mu) = -sum(x0(2:end,mu)); 
-end
+x0 = zeros(n,m);
 x0 = x0(:);
 
 %% Set up differential equation solver and run protocol
 T = 10; % sim time
 h = 5e-4; % time step
 
-% Use EDCHO
-[t,X] = ode0(@dyn_edcho_vectorial,[0,T],x0,h);
+% Use modulated REDCHO
+modulating('init',m);
+[t,X] = ode0(@dyn_modulated_redcho,[0,T],x0,h);
 
 % Subsample to only 100 samples in order to aid the plot function
 ss = floor(numel(t)/100);
 t = t(1:ss:end);
 X = X(1:ss:end,:);
 
-%% Plot data
+%% Plot data: 
+% The expected behaviour is to see consensus in finite time
+% towards a signal that converges asymptotically towards the average signal
 
 figure(2);
 title('Consensus results')
 
 subplot(2,1,1)
 plot_edc_data(t, X, 0, 'raw')
+plot([Tc,Tc],[-2*mean(amp),2*mean(amp)],'k--', 'Linewidth',2);
 axis([0,T,-2*mean(amp),2*mean(amp)]);
 
 subplot(2,1,2)
 plot_edc_data(t, X, 0, 'error')
+plot([Tc,Tc],[0,mean(amp)],'k--', 'Linewidth',2);
 axis([0,T,0,mean(amp)]);
-
-

@@ -10,6 +10,9 @@ function print_progress( t,inter,percentage_step,time_step )
 %       time_step:       refers to the fixed time step at which the time
 %                        variable is expected to increase.
 
+% Copyright (c) 2022 Rodrigo Aldana López, Universidad de Zaragoza, Spain. All rights reserved
+% Licensed under the MIT license. See LICENSE.txt file in the project root for details.
+
 persistent local_data;
 
 T = inter(2)-inter(1);
