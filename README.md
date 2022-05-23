@@ -1,6 +1,6 @@
 # EDC_sim
 
-Code for the Exact Dynamic Consensus (EDC) project by Rodrigo Aldana-López. EDC protocols are a family of algorithms whose purpose is to compute the average of a set of local scalar time-varying signals distributed over a network. Each node in the network has access to its local signal and can communicate with its neighbor nodes.
+Code for the Exact Dynamic Consensus (EDC) project by [Rodrigo Aldana-López](https://rodrigoaldana.github.io/), Rosario Aragüés and Carlos Sagüés, Universidad de Zaragoza. EDC protocols are a family of algorithms whose purpose is to compute the average of a set of local scalar time-varying signals distributed over a network. Each node in the network has access to its local signal and can communicate with its neighbor nodes.
 
 The EDC basic blocks share a single scalar value per node and compute the average signal and its derivatives.
 
