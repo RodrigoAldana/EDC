@@ -1,10 +1,10 @@
 # EDC_sim
 
-Code for the Exact Dynamic Consensus (EDC) project by [Rodrigo Aldana-López](https://rodrigoaldana.github.io/), Rosario Aragüés and Carlos Sagüés, Universidad de Zaragoza. EDC protocols are a family of algorithms whose purpose is to compute the average of a set of local scalar time-varying signals distributed over a network. Each node in the network has access to its local signal and can communicate with its neighbor nodes. The EDC basic blocks share a single scalar value per node and compute the average signal and its derivatives.
+Code for the Exact Dynamic Consensus (EDC) project by [Rodrigo Aldana-López](https://rodrigoaldana.github.io/), Rosario Aragüés and Carlos Sagüés, Universidad de Zaragoza. 
 
 The purpose of this project is to provide basic reference designs, parameter values and protocol configurations so that anyone interested in using EDC algorithms can get them working easily. 
 
-The philosophy behind the protocols here is analogous to an exact differentiator vs. a high gain observer. In this case, EDC protocols are the counter-part to classical linear average dynamic consensus, which are only exact with vanishing signals. In contrast, EDC protocols are exact over a broader class of signals, usually with bounded derivatives.
+EDC protocols are a family of algorithms whose purpose is to compute the average of a set of local scalar time-varying signals distributed over a network. Each node in the network has access to its local signal and can communicate with its neighbor nodes. The EDC basic blocks share a single scalar value per node and compute the average signal and its derivatives. The philosophy behind the protocols here is analogous to an exact differentiator vs. a high gain observer. In this case, EDC protocols are the counter-part to classical linear average dynamic consensus, which are only exact with vanishing signals. In contrast, EDC protocols are exact over a broader class of signals, usually with bounded derivatives.
 
 All protocols have the general structure containing:
 - **Local signals** "u_i(t)": Each local signal is only accessed locally at each node "i".
