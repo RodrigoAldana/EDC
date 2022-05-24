@@ -1,4 +1,4 @@
-# EDC_sim
+# EDC
 
 Code for the Exact Dynamic Consensus (EDC) project by [Rodrigo Aldana-López](https://rodrigoaldana.github.io/), Rosario Aragüés and Carlos Sagüés, Universidad de Zaragoza. 
 
