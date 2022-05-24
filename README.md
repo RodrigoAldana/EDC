@@ -17,7 +17,7 @@ The main protocols are enlisted as follows:
 - **EDCHO**:  This is the most basic EDC block. It has the same structure as the [standard homogeneous exact differentiator](https://www.tandfonline.com/doi/abs/10.1080/0020717031000099029) extended to the context of dynamic consensus. This protocol can achieve EDC even if the local signals don't vanish, provided some high-order derivative is bounded. The main drawback is that the initial conditions for the protocol must all add up to zero. The previous can be satisfied trivially if all nodes start at zero. However, if the network conditions change (disconnection/connection of agents), this condition is broken, and the protocol diverges. The theoretical details are provided in our paper either at the [publisher link](https://www.sciencedirect.com/science/article/abs/pii/S0005109821002703) or in [arxiv](https://arxiv.org/abs/2202.03012). *If you use this protocol in academic work, please cite the publisher version of our article as*:
 
 ```bibtex
-@article{edcho,
+@article{edcho2021,
   title = {EDCHO: High order exact dynamic consensus},
   journal = {Automatica},
   volume = {131},
@@ -31,7 +31,7 @@ The main protocols are enlisted as follows:
 - **REDCHO**: This can be used as the standard EDC block. It solves the initial condition problem of EDCHO, being robust to the disconnection/connection of agents. Moreover, EDCHO can be recovered from REDCHO by a simple parameter selection. The main drawback compared to EDCHO is that all derivatives up to m must be bounded now. Also, the [tunning procedure](#tunning-procedure) is more involved. The theoretical details are provided in our paper either at the [publisher link](https://www.sciencedirect.com/science/article/pii/S0005109822001686?via%3Dihub) or in [arxiv](https://arxiv.org/abs/2204.12344). *If you use this protocol in academic work, please cite the publisher version of our article as*:
 
 ```bibtex
-@article{ALDANALOPEZ2022110320,
+@article{redcho2022,
   title = {REDCHO: Robust Exact Dynamic Consensus of High Order},
   journal = {Automatica},
   volume = {141},
