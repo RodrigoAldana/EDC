@@ -14,9 +14,27 @@ All protocols have the general structure containing:
 - **Outputs "y_{i,mu}"**:  These are the actual outputs of the protocol at node "i". After the protocol converges, "y_{i,mu}" converges to the mu-th derivative of the goal signal.
 
 The main protocols are enlisted as follows:
-- **EDCHO**:  This is the most basic EDC block. It has the same structure as the [standard homogeneous exact differentiator](https://www.tandfonline.com/doi/abs/10.1080/0020717031000099029) extended to the context of dynamic consensus. This protocol can achieve EDC even if the local signals don't vanish, provided some high-order derivative is bounded. The main drawback is that the initial conditions for the protocol must all add up to zero. The previous can be satisfied trivially if all nodes start at zero. However, if the network conditions change (disconnection/connection of agents), this condition is broken, and the protocol diverges. The theoretical details are provided in our paper either at the [publisher link](https://www.sciencedirect.com/science/article/abs/pii/S0005109821002703) or in [arxiv](https://arxiv.org/abs/2202.03012). *Please cite the publisher version*.
+- **EDCHO**:  This is the most basic EDC block. It has the same structure as the [standard homogeneous exact differentiator](https://www.tandfonline.com/doi/abs/10.1080/0020717031000099029) extended to the context of dynamic consensus. This protocol can achieve EDC even if the local signals don't vanish, provided some high-order derivative is bounded. The main drawback is that the initial conditions for the protocol must all add up to zero. The previous can be satisfied trivially if all nodes start at zero. However, if the network conditions change (disconnection/connection of agents), this condition is broken, and the protocol diverges. The theoretical details are provided in our paper either at the [publisher link](https://www.sciencedirect.com/science/article/abs/pii/S0005109821002703) or in [arxiv](https://arxiv.org/abs/2202.03012). *If you use this protocol in your work, please cite the publisher version of our article as*:
+>@article{edcho,
+>title = {EDCHO: High order exact dynamic consensus},
+>journal = {Automatica},
+>volume = {131},
+>pages = {109750},
+>year = {2021},
+>issn = {0005-1098},
+>author = {Rodrigo Aldana-López and Rosario Aragüés and Carlos Sagüés}
+>}
 
-- **REDCHO**: This can be used as the standard EDC block. It solves the initial condition problem of EDCHO, being robust to the disconnection/connection of agents. Moreover, EDCHO can be recovered from REDCHO by a simple parameter selection. The main drawback compared to EDCHO is that all derivatives up to m must be bounded now. Also, the [tunning procedure](#tunning-procedure) is more involved. The theoretical details are provided in our paper either at the [publisher link](https://www.sciencedirect.com/science/article/pii/S0005109822001686?via%3Dihub) or in [arxiv](https://arxiv.org/abs/2204.12344). *Please cite the publisher version*. 
+- **REDCHO**: This can be used as the standard EDC block. It solves the initial condition problem of EDCHO, being robust to the disconnection/connection of agents. Moreover, EDCHO can be recovered from REDCHO by a simple parameter selection. The main drawback compared to EDCHO is that all derivatives up to m must be bounded now. Also, the [tunning procedure](#tunning-procedure) is more involved. The theoretical details are provided in our paper either at the [publisher link](https://www.sciencedirect.com/science/article/pii/S0005109822001686?via%3Dihub) or in [arxiv](https://arxiv.org/abs/2204.12344). *If you use this protocol in your work, please cite the publisher version of our article as*:
+>@article{ALDANALOPEZ2022110320,
+>title = {REDCHO: Robust Exact Dynamic Consensus of High Order},
+>journal = {Automatica},
+>volume = {141},
+>pages = {110320},
+>year = {2022},
+>issn = {0005-1098},
+>author = {Rodrigo Aldana-López and Rosario Aragüés and Carlos Sagüés},
+>}
 
 - **Modulated EDCHO/REDCHO**: This protocol version modulates the local signals to start from the trivial signal 0 and deforms them towards the actual goal signal of interest after a prescribed time. For appropriate tunning, the protocol begins at consensus (at the useless zero signal) but maintains consensus while the signals are being deformed. The result is that the protocol is already at consensus when the deformation finishes. The previous allows the protocol to converge in a *prescribed time*. The main drawback is that this protocol requires more conservative (more significant gains) for a smaller prescribed deadline. The theoretical details are provided in our paper (**comming soon**).
 
