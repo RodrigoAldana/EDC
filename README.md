@@ -26,15 +26,15 @@ The main protocols are enlisted as follows:
 >}
 
 - **REDCHO**: This can be used as the standard EDC block. It solves the initial condition problem of EDCHO, being robust to the disconnection/connection of agents. Moreover, EDCHO can be recovered from REDCHO by a simple parameter selection. The main drawback compared to EDCHO is that all derivatives up to m must be bounded now. Also, the [tunning procedure](#tunning-procedure) is more involved. The theoretical details are provided in our paper either at the [publisher link](https://www.sciencedirect.com/science/article/pii/S0005109822001686?via%3Dihub) or in [arxiv](https://arxiv.org/abs/2204.12344). *If you use this protocol in your work, please cite the publisher version of our article as*:
->@article{ALDANALOPEZ2022110320,
->title = {REDCHO: Robust Exact Dynamic Consensus of High Order},
->journal = {Automatica},
->volume = {141},
->pages = {110320},
->year = {2022},
->issn = {0005-1098},
->author = {Rodrigo Aldana-López and Rosario Aragüés and Carlos Sagüés},
->}
+	@article{ALDANALOPEZ2022110320,
+	title = {REDCHO: Robust Exact Dynamic Consensus of High Order},
+	journal = {Automatica},
+	volume = {141},
+	pages = {110320},
+	year = {2022},
+	issn = {0005-1098},
+	author = {Rodrigo Aldana-López and Rosario Aragüés and Carlos Sagüés},
+	}
 
 - **Modulated EDCHO/REDCHO**: This protocol version modulates the local signals to start from the trivial signal 0 and deforms them towards the actual goal signal of interest after a prescribed time. For appropriate tunning, the protocol begins at consensus (at the useless zero signal) but maintains consensus while the signals are being deformed. The result is that the protocol is already at consensus when the deformation finishes. The previous allows the protocol to converge in a *prescribed time*. The main drawback is that this protocol requires more conservative (more significant gains) for a smaller prescribed deadline. The theoretical details are provided in our paper (**comming soon**).
 
