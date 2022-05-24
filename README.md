@@ -83,7 +83,7 @@ In this test, we use two modulated REDCHO blocks for follower nodes to compute t
 
 In the test files, we already provide some parameters which work well in most cases. These might differ from the EDCHO/REDCHO articles since we have been experimenting with other tunning procedures. The original EDCHO/REDCHO tunning ensures sufficiently big gains "k0,...km" exist. According to the EDCHO paper, these gains are related to the expected exact differentiator gains. However, we have found a simple procedure to tune the gains for most scenarios:
 
-### **EDCHO**
+### **Tuning EDCHO**
 The gains "k0,...,km" are chosen as coefficients of a Hurtwitz polynomial, just as if it was a linear observer. Moreover, we use a scale value "r" to move the fictitious poles "r" times to the left (increasing the gains k0,...,km) accordingly. For example, if m=4, the polynomial with coefficients 1,10,35,50,4 has poles at -1,-2,-3,-4. Hence, we can set the gains as:
 
 >r = 2; % gain scaling
@@ -96,7 +96,7 @@ The previous is motivated by a similar tunning procedure working for the standar
 
 >faster local signals -> increase "r" -> decrease time step "h"
 
-### **REDCHO**
+### **Tuning REDCHO**
 A similar tunning rule as in EDCHO. The "k0,...,km" gains are chosen similarly, with a scale factor "r". However, a new set of gains "g0,...,gm" are introduced. For simplicity, we can set g = g0 = ... = gm. We have found no advantage of using different gains yet. Thus, we have an interplay between the following quantities:
 
 - *Local signals dynamics*: how fast these signals change. In the case of sinusoidal, this is determined by the frequency and amplitude of the signals.
