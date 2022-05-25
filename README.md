@@ -109,8 +109,8 @@ A similar tunning rule as in EDCHO. The *k<sub>0</sub>,...,k<sub>m</sub>* gains 
 
 Increasing *g* makes the protocol converge faster when initial conditions are arbitrary. However, a bigger *g* require bigger *r*. Thus the tunning procedure consists of iterating over the following rules.
 
->faster local signals &rarr; increase *r* &rarr; decrease time step *h*
+**faster local signals &rarr; increase *r* &rarr; decrease time step *h***
 
->bigger *g* &rarr; increase *r* &rarr; decrease time step *h*
+**bigger *g* &rarr; increase *r* &rarr; decrease time step *h***
 
 
