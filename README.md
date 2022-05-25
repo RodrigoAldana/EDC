@@ -7,11 +7,11 @@ The purpose of this project is to provide basic reference designs, parameter val
 EDC protocols are a family of algorithms whose purpose is to compute the average of a set of local scalar time-varying signals distributed over a network. Each node in the network has access to its local signal and can communicate with its neighbor nodes. The EDC basic blocks share a single scalar value per node and compute the average signal and its derivatives. The philosophy behind the protocols here is analogous to an exact differentiator vs. a high gain observer. In this case, EDC protocols are the counter-part to classical linear average dynamic consensus, which are only exact with vanishing signals. In contrast, EDC protocols are exact over a broader class of signals, usually with bounded derivatives.
 
 All protocols have the general structure containing:
-- **Local signals** "u_i(t)": Each local signal is only accessed locally at each node "i".
+- **Local signals** u<sub>i<\sub>(t): Each local signal is only accessed locally at each node i.
 - **Goal signal**: A global quantity of interest, function of the local signals. For example, the average of all local signals. The goal of the protocol is to compute (estimate) such signal in a "fully" distributed and decentralized way.
-- **Protocol order** "m": Determines the order of the high-order sliding mode. This is determined by the m-th derivative of the signals known to be bounded. Also, this determines how many derivatives of the average signal can be computed by the protocol.
-- **Protocol's internal state** "x_{i,mu}": Each node "i" has internal variables "x_{i,0},...,x_{i,m}" whose dynamics determine the protocol.
-- **Outputs "y_{i,mu}"**:  These are the actual outputs of the protocol at node "i". After the protocol converges, "y_{i,mu}" converges to the mu-th derivative of the goal signal.
+- **Protocol order** m: Determines the order of the high-order sliding mode. This is determined by the m-th derivative of the signals known to be bounded. Also, this determines how many derivatives of the average signal can be computed by the protocol.
+- **Protocol's internal state** x<sub>i,&mu;<\sub>: Each node i has internal variables x<sub>i,0<\sub>,...,x<sub>i,m<\sub> whose dynamics determine the protocol.
+- **Outputs** y<sub>i,&mu;<\sub>:  These are the actual outputs of the protocol at node i. After the protocol converges, y<sub>i,&mu;<\sub> converges to the mu-th derivative of the goal signal.
 
 The main protocols are enlisted as follows:
 - **EDCHO**:  This is the most basic EDC block. It has the same structure as the [standard homogeneous exact differentiator](https://www.tandfonline.com/doi/abs/10.1080/0020717031000099029) extended to the context of dynamic consensus. This protocol can achieve EDC even if the local signals don't vanish, provided some high-order derivative is bounded. The main drawback is that the initial conditions for the protocol must all add up to zero. The previous can be satisfied trivially if all nodes start at zero. However, if the network conditions change (disconnection/connection of agents), this condition is broken, and the protocol diverges. The theoretical details are provided in our paper either at the [publisher link](https://www.sciencedirect.com/science/article/abs/pii/S0005109821002703) or in [arxiv](https://arxiv.org/abs/2202.03012). *If you use this protocol in academic work, please cite the publisher version of our article as*:
@@ -81,10 +81,10 @@ In this test, we use two modulated REDCHO blocks for follower nodes to compute t
 ---
 ## Tuning procedure <a name="tunning-procedure" />
 
-In the test files, we already provide some parameters which work well in most cases. These might differ from the EDCHO/REDCHO articles since we have been experimenting with other tunning procedures. The original EDCHO/REDCHO tunning ensures sufficiently big gains k<sub>0</sub>,...k<sub>m</sub>" exist. According to the EDCHO paper, these gains are related to the expected exact differentiator gains. However, we have found a simple procedure to tune the gains for most scenarios:
+In the test files, we already provide some parameters which work well in most cases. These might differ from the EDCHO/REDCHO articles since we have been experimenting with other tunning procedures. The original EDCHO/REDCHO tunning ensures sufficiently big gains k<sub>0</sub>,...k<sub>m</sub> exist. According to the EDCHO paper, these gains are related to the expected exact differentiator gains. However, we have found a simple procedure to tune the gains for most scenarios:
 
 ### **Tuning EDCHO**
-The gains "k0,...,km" are chosen as coefficients of a Hurtwitz polynomial, just as if it was a linear observer. Moreover, we use a scale value "r" to move the fictitious poles "r" times to the left (increasing the gains k0,...,km) accordingly. For example, if m=4, the polynomial with coefficients 1,10,35,50,4 has poles at -1,-2,-3,-4. Hence, we can set the gains as:
+The gains k<sub>0</sub>,...k<sub>m</sub> are chosen as coefficients of a Hurtwitz polynomial, just as if it was a linear observer. Moreover, we use a scale value "r" to move the fictitious poles "r" times to the left (increasing the gains k<sub>0</sub>,...k<sub>m</sub>) accordingly. For example, if m=4, the polynomial with coefficients 1,10,35,50,4 has poles at -1,-2,-3,-4. Hence, we can set the gains as:
 
 >r = 2; % gain scaling
 >
