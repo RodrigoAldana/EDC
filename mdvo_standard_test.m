@@ -27,6 +27,8 @@ global nmax;
 global freq;
 global amp;
 global phase;
+global local_signals; % local signals function handle
+local_signals = @generic_local_signals; % Sinusoidal signals in utils/
 
 % Protocol parameters (gains and order)
 global k;

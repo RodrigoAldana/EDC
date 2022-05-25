@@ -24,15 +24,12 @@ global D;
 
 global m; % system order
 global k; % system gains
-global g;
-
-global freq;
-global amp;
-global phase;
+global g; % robist gains (against mismatch in initial conditions)
+global local_signals; % local signals function handle
 
 global Tc % Prescribed convergence time
 
-u = amp.*cos(freq*t+phase);% compute all time varyng signals
+u = local_signals(t);      % compute all time varyng signals
 n = size(D,1);             % number of agents
 X = reshape(x,n,m);        % reshape state: one row per agent, m components for each agent
 dX = zeros(size(X));       % placeholder for the dynamics

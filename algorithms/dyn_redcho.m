@@ -1,9 +1,7 @@
 function dX = dyn_redcho( t,x )
 % dyn_redcho: dynamics of the REDCHO protocol internal 
 % variables. REDCHO achieves dynamic consensus towards the 
-% average of time-varying singlas. Test signals are always persistent
-% signals of the form A*cos(w*t). 
-%
+% average of time-varying singlas. 
 % EDCHO is recovered by using all g = 0. However, REDCHO with g different
 % to zero is robust to spontaneous changes in the network (e.g., connection
 % or disconnection of nodes).
@@ -28,13 +26,10 @@ global D;
 
 global m; % system order
 global k; % system gains
-global g;
+global g; % robust gains (against mismatch in initial conditions)
+global local_signals; % local signals function handle
 
-global freq;
-global amp;
-global phase;
-
-u = amp.*cos(freq*t+phase);% compute all time varyng signals
+u = local_signals(t);      % compute all time varyng signals
 n = size(D,1);             % number of agents
 X = reshape(x,n,m);        % reshape state: one row per agent, m components for each agent
 dX = zeros(size(X));       % placeholder for the dynamics

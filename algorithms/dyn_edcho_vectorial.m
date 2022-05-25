@@ -1,9 +1,7 @@
 function dX = dyn_edcho_vectorial( t,x )
 % dyn_edcho_vectorial: dynamics of the EDCHO protocol internal 
 % variables. EDCHO achieves dynamic consensus towards the 
-% average of time-varying singlas. Test signals are always persistent
-% signals of the form A*cos(w*t). 
-%
+% average of time-varying singlas. 
 % This version of the protocol (vectorial) is the "compact"
 % implementation of the protocol, where the incidence matrix
 % is used. The result is (algebraically) identical to the 
@@ -28,12 +26,10 @@ function dX = dyn_edcho_vectorial( t,x )
 global D;
 global m; % system order
 global k; % system gains
-global freq;
-global amp;
-global phase;
+global local_signals; % local signals function handle
 
+u = local_signals(t);      % compute all time varyng signals
 n = size(D,1);                % number of agents
-u = amp.*cos(freq*t+phase);   % compute all time varyng signals
 X = reshape(x,n,m);           % reshape state: one row per agent, m components for each agent
 dX = zeros(size(X));          % placeholder for the dynamics
 

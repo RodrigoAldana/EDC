@@ -1,8 +1,7 @@
 function dx = dyn_edcho_components( t,x )
 % dyn_edcho_components: dynamics of the EDCHO protocol internal 
 % variables. EDCHO achieves dynamic consensus towards the 
-% average of time-varying singlas. Test signals are always persistent
-% signals of the form A*cos(w*t). 
+% average of time-varying singlas. 
 %
 % This version of the protocol (components) is the straightforward
 % implementation of the protocol, where each agent adds the 
@@ -27,12 +26,10 @@ function dx = dyn_edcho_components( t,x )
 global A; % adjacency matrix
 global m; % system order
 global k; % system gains
-global freq;
-global amp;
-global phase;
+global local_signals; % local signals function handle
 
+u = local_signals(t);      % compute all time varyng signals
 n = size(A,1);                % number of agents
-u = amp.*cos(freq*t+phase);   % compute all time varyng signals
 x = reshape(x,n,m);           % reshape state: one row per agent, m components for each agent
 dx = zeros(size(x));          % placeholder for the dynamics
 
