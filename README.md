@@ -81,7 +81,7 @@ In this test, we use two modulated REDCHO blocks for follower nodes to compute t
 ---
 ## Tuning procedure <a name="tunning-procedure" />
 
-In the test files, we already provide some parameters which work well in most cases. These might differ from the EDCHO/REDCHO articles since we have been experimenting with other tunning procedures. The original EDCHO/REDCHO tunning ensures sufficiently big gains "k0,...km" exist. According to the EDCHO paper, these gains are related to the expected exact differentiator gains. However, we have found a simple procedure to tune the gains for most scenarios:
+In the test files, we already provide some parameters which work well in most cases. These might differ from the EDCHO/REDCHO articles since we have been experimenting with other tunning procedures. The original EDCHO/REDCHO tunning ensures sufficiently big gains k<sub>0</sub>,...k<sub>m</sub>" exist. According to the EDCHO paper, these gains are related to the expected exact differentiator gains. However, we have found a simple procedure to tune the gains for most scenarios:
 
 ### **Tuning EDCHO**
 The gains "k0,...,km" are chosen as coefficients of a Hurtwitz polynomial, just as if it was a linear observer. Moreover, we use a scale value "r" to move the fictitious poles "r" times to the left (increasing the gains k0,...,km) accordingly. For example, if m=4, the polynomial with coefficients 1,10,35,50,4 has poles at -1,-2,-3,-4. Hence, we can set the gains as:
