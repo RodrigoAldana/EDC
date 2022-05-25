@@ -10,7 +10,7 @@ All protocols have the general structure containing:
 - **Local signals** *u<sub>i</sub>(t)*: Each local signal is only accessed locally at each node *i*.
 - **Goal signal**: A global quantity of interest, function of the local signals. For example, the average of all local signals. The goal of the protocol is to compute (estimate) such signal in a "fully" distributed and decentralized way.
 - **Protocol order** *m*: Determines the order of the high-order sliding mode. This is determined by the m-th derivative of the signals known to be bounded. Also, this determines how many derivatives of the average signal can be computed by the protocol.
-- **Protocol's internal state** *x<sub>i,&mu;</sub>(t)*: Each node *i* has internal variables *x<sub>i,0</sub>(t),...,x<sub>i,m</sub>(t)* whose dynamics determine the protocol.
+- **Protocol's internal state** *x<sub>i,&mu;</sub>(t)*: Each node *i* has internal variables *x<sub>i,0</sub>(t),...,x<sub>i,m-1</sub>(t)* whose dynamics determine the protocol.
 - **Outputs** *y<sub>i,&mu;</sub>(t)*:  These are the actual outputs of the protocol at node *i*. After the protocol converges, *y<sub>i,&mu;</sub>(t)* converges to the *&mu;*-th derivative of the goal signal.
 
 The main protocols are enlisted as follows:
@@ -84,7 +84,7 @@ In this test, we use two modulated REDCHO blocks for follower nodes to compute t
 In the test files, we already provide some parameters which work well in most cases. These might differ from the EDCHO/REDCHO articles since we have been experimenting with other tunning procedures. The original EDCHO/REDCHO tunning ensures sufficiently big gains *k<sub>0</sub>,...,k<sub>m</sub>* exist. According to the EDCHO paper, these gains are related to the expected exact differentiator gains. However, we have found a simple procedure to tune the gains for most scenarios:
 
 ### **Tuning EDCHO**
-The gains *k<sub>0</sub>,...,k<sub>m</sub>* are chosen as coefficients of a Hurtwitz polynomial, just as if it was a linear observer. Moreover, we use a scale value *r* to move the fictitious poles *r* times to the left (increasing the gains *k<sub>0</sub>,...,k<sub>m</sub>*) accordingly. For example, if *m=4*, the polynomial with coefficients *1, 10, 35, 50, 24* has poles at *-1,-2,-3,-4*. Hence, we can set the gains as:
+The gains *k<sub>0</sub>,...,k<sub>m-1</sub>* are chosen as coefficients of a Hurtwitz polynomial, just as if it was a linear observer. Moreover, we use a scale value *r* to move the fictitious poles *r* times to the left (increasing the gains *k<sub>0</sub>,...,k<sub>m-1</sub>*) accordingly. For example, if *m=4*, the polynomial with coefficients *1, 10, 35, 50, 24* has poles at *-1,-2,-3,-4*. Hence, we can set the gains as:
 
 >r = 2; % gain scaling
 >
@@ -97,13 +97,13 @@ The previous is motivated by a similar tunning procedure working for the standar
 **faster local signals &rarr; increase *r* &rarr; decrease time step *h***
 
 ### **Tuning REDCHO**
-A similar tunning rule as in EDCHO. The *k<sub>0</sub>,...,k<sub>m</sub>* gains are chosen similarly, with a scale factor *r*. However, a new set of gains *g<sub>0</sub>,...,g<sub>m</sub>* are introduced. For simplicity, we can set *g=g<sub>0</sub>=...=g<sub>m</sub>*. We have found no advantage of using different gains yet. Thus, we have an interplay between the following quantities:
+A similar tunning rule as in EDCHO. The *k<sub>0</sub>,...,k<sub>m-1</sub>* gains are chosen similarly, with a scale factor *r*. However, a new set of gains *g<sub>0</sub>,...,g<sub>m-1</sub>* are introduced. In the paper, these gains appear as *&gamma;<sub>0</sub>,...,&gamma;<sub>m-1</sub>*.For simplicity, we can set *g=g<sub>0</sub>=...=g<sub>m-1</sub>*. We have found no advantage of using different gains yet. Thus, we have an interplay between the following quantities:
 
 - *Local signals dynamics*: how fast these signals change. In the case of sinusoidal, this is determined by the frequency and amplitude of the signals.
 
-- *scale factor r*: Scale to increase *k<sub>0</sub>,...,k<sub>m</sub>*. Determines the converges towards consensus.
+- *scale factor r*: Scale to increase *k<sub>0</sub>,...,k<sub>m-1</sub>*. Determines the converges towards consensus.
 
-- *gain g*: Gain for *g<sub>0</sub>,...,g<sub>m</sub>*. A bigger value of g makes the mismatch in the initial conditions vanish faster.
+- *gain g*: Gain for *g<sub>0</sub>,...,g<sub>m-1</sub>*. A bigger value of g makes the mismatch in the initial conditions vanish faster.
 
 - *time step h*: determines the Euler step in the simulation.
 
