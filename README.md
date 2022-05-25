@@ -97,7 +97,7 @@ The previous is motivated by a similar tunning procedure working for the standar
 **faster local signals &rarr; increase *r* &rarr; decrease time step *h***
 
 ### **Tuning REDCHO**
-A similar tunning rule as in EDCHO. The *k<sub>0</sub>,...,k<sub>m-1</sub>* gains are chosen similarly, with a scale factor *r*. However, a new set of gains *g<sub>0</sub>,...,g<sub>m-1</sub>* are introduced. In the paper, these gains appear as *&gamma;<sub>0</sub>,...,&gamma;<sub>m-1</sub>*.For simplicity, we can set *g=g<sub>0</sub>=...=g<sub>m-1</sub>*. We have found no advantage of using different gains yet. Thus, we have an interplay between the following quantities:
+A similar tunning rule as in EDCHO. The *k<sub>0</sub>,...,k<sub>m-1</sub>* gains are chosen similarly, with a scale factor *r*. However, a new set of gains *g<sub>0</sub>,...,g<sub>m-1</sub>* are introduced. In the article, these gains appear as *&gamma;<sub>0</sub>,...,&gamma;<sub>m-1</sub>*. For simplicity, we can set *g=g<sub>0</sub>=...=g<sub>m-1</sub>*. We have found no advantage of using different gains yet. Thus, we have an interplay between the following quantities:
 
 - *Local signals dynamics*: how fast these signals change. In the case of sinusoidal, this is determined by the frequency and amplitude of the signals.
 
