@@ -94,7 +94,7 @@ The previous is motivated by a similar tunning procedure working for the standar
 
 **Time step vs. *r* vs. local signals dynamics tradeoff**: As local signals change faster, higher gains will be required. Hence, when setting faster signals, one can increase *r* directly. However, big signals may cause significant numerical chattering, mainly at the high order states. Thus, the time step may be decreased to counteract the chattering. The previous is equivalent to increasing the frequency of communication between nodes. This rule can be summarized as iterating over:
 
->faster local signals &rarr; increase *r* &rarr; decrease time step *h*
+**faster local signals &rarr; increase *r* &rarr; decrease time step *h***
 
 ### **Tuning REDCHO**
 A similar tunning rule as in EDCHO. The *k<sub>0</sub>,...,k<sub>m</sub>* gains are chosen similarly, with a scale factor *r*. However, a new set of gains *g<sub>0</sub>,...,g<sub>m</sub>* are introduced. For simplicity, we can set *g=g<sub>0</sub>=...=g<sub>m</sub>*. We have found no advantage of using different gains yet. Thus, we have an interplay between the following quantities:
