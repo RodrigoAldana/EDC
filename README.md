@@ -84,11 +84,10 @@ In this test, we use two modulated REDCHO blocks for follower nodes to compute t
 In the test files, we already provide some parameters which work well in most cases. These might differ from the EDCHO/REDCHO articles since we have been experimenting with other tunning procedures. The original EDCHO/REDCHO tunning ensures sufficiently big gains *k<sub>0</sub>,...,k<sub>m</sub>* exist. According to the EDCHO paper, these gains are related to the expected exact differentiator gains. However, we have found a simple procedure to tune the gains for most scenarios:
 
 ### **Tuning EDCHO**
-The gains *k<sub>0</sub>,...,k<sub>m</sub>* are chosen as coefficients of a Hurtwitz polynomial, just as if it was a linear observer. Moreover, we use a scale value *r* to move the fictitious poles *r* times to the left (increasing the gains *k<sub>0</sub>,...,k<sub>m</sub>*) accordingly. For example, if *m=4*, the polynomial with coefficients *1, 10, 35, 50, 4* has poles at *-1,-2,-3,-4*. Hence, we can set the gains as:
+The gains *k<sub>0</sub>,...,k<sub>m</sub>* are chosen as coefficients of a Hurtwitz polynomial, just as if it was a linear observer. Moreover, we use a scale value *r* to move the fictitious poles *r* times to the left (increasing the gains *k<sub>0</sub>,...,k<sub>m</sub>*) accordingly. For example, if *m=4*, the polynomial with coefficients *1, 10, 35, 50, 24* has poles at *-1,-2,-3,-4*. Hence, we can set the gains as:
 
 >r = 2; % gain scaling
->
->k = [24,50,35,10].*[r^1, r^2 , r^3, r^4];
+>k = [24, 50, 35, 10].*[r^1, r^2 , r^3, r^4];S
 
 The previous is motivated by a similar tunning procedure working for the standard homogeneous differentiator. 
 
