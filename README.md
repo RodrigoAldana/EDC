@@ -10,8 +10,8 @@ All protocols have the general structure containing:
 - **Local signals** *u<sub>i</sub>(t)*: Each local signal is only accessed locally at each node *i*.
 - **Goal signal**: A global quantity of interest, function of the local signals. For example, the average of all local signals. The goal of the protocol is to compute (estimate) such signal in a "fully" distributed and decentralized way.
 - **Protocol order** *m*: Determines the order of the high-order sliding mode. This is determined by the m-th derivative of the signals known to be bounded. Also, this determines how many derivatives of the average signal can be computed by the protocol.
-- **Protocol's internal state** *x<sub>i,&mu;</sub>*: Each node *i* has internal variables *x<sub>i,0</sub>,...,x<sub>i,m</sub>* whose dynamics determine the protocol.
-- **Outputs** *y<sub>i,&mu;</sub>*:  These are the actual outputs of the protocol at node *i*. After the protocol converges, *y<sub>i,&mu;</sub>* converges to the *&mu;*-th derivative of the goal signal.
+- **Protocol's internal state** *x<sub>i,&mu;</sub>(t)*: Each node *i* has internal variables *x<sub>i(t),0</sub>,...,x<sub>i,m</sub>(t)* whose dynamics determine the protocol.
+- **Outputs** *y<sub>i,&mu;</sub>(t)*:  These are the actual outputs of the protocol at node *i*. After the protocol converges, *y<sub>i,&mu;</sub>(t)* converges to the *&mu;*-th derivative of the goal signal.
 
 The main protocols are enlisted as follows:
 - **EDCHO**:  This is the most basic EDC block. It has the same structure as the [standard homogeneous exact differentiator](https://www.tandfonline.com/doi/abs/10.1080/0020717031000099029) extended to the context of dynamic consensus. This protocol can achieve EDC even if the local signals don't vanish, provided some high-order derivative is bounded. The main drawback is that the initial conditions for the protocol must all add up to zero. The previous can be satisfied trivially if all nodes start at zero. However, if the network conditions change (disconnection/connection of agents), this condition is broken, and the protocol diverges. The theoretical details are provided in our paper either at the [publisher link](https://www.sciencedirect.com/science/article/abs/pii/S0005109821002703) or in [arxiv](https://arxiv.org/abs/2202.03012). *If you use this protocol in academic work, please cite the publisher version of our article as*:
@@ -94,10 +94,10 @@ The previous is motivated by a similar tunning procedure working for the standar
 
 **Time step vs. *r* vs. local signals dynamics tradeoff**: As local signals change faster, higher gains will be required. Hence, when setting faster signals, one can increase *r* directly. However, big signals may cause significant numerical chattering, mainly at the high order states. Thus, the time step may be decreased to counteract the chattering. The previous is equivalent to increasing the frequency of communication between nodes. This rule can be summarized as iterating over:
 
->faster local signals -> increase *r* -> decrease time step *h*
+>faster local signals &rarr; increase *r* &rarr; decrease time step *h*
 
 ### **Tuning REDCHO**
-A similar tunning rule as in EDCHO. The *k<sub>0</sub>,...,k<sub>m</sub>* gains are chosen similarly, with a scale factor *r*. However, a new set of gains *g<sub>0</sub>,...,g<sub>m</sub>* are introduced. For simplicity, we can set *g0=g<sub>0</sub>=...=g<sub>m</sub>*. We have found no advantage of using different gains yet. Thus, we have an interplay between the following quantities:
+A similar tunning rule as in EDCHO. The *k<sub>0</sub>,...,k<sub>m</sub>* gains are chosen similarly, with a scale factor *r*. However, a new set of gains *g<sub>0</sub>,...,g<sub>m</sub>* are introduced. For simplicity, we can set *g=g<sub>0</sub>=...=g<sub>m</sub>*. We have found no advantage of using different gains yet. Thus, we have an interplay between the following quantities:
 
 - *Local signals dynamics*: how fast these signals change. In the case of sinusoidal, this is determined by the frequency and amplitude of the signals.
 
@@ -109,8 +109,8 @@ A similar tunning rule as in EDCHO. The *k<sub>0</sub>,...,k<sub>m</sub>* gains 
 
 Increasing *g* makes the protocol converge faster when initial conditions are arbitrary. However, a bigger *g* require bigger *r*. Thus the tunning procedure consists of iterating over the following rules.
 
->faster local signals -> increase *r* -> decrease time step *h*
+>faster local signals &rarr; increase *r* &rarr; decrease time step *h*
 
->bigger *g* -> increase *r* -> decrease time step *h*
+>bigger *g* &rarr; increase *r* &rarr; decrease time step *h*
 
 
