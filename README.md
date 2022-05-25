@@ -10,7 +10,7 @@ All protocols have the general structure containing:
 - **Local signals** *u<sub>i</sub>(t)*: Each local signal is only accessed locally at each node *i*.
 - **Goal signal**: A global quantity of interest, function of the local signals. For example, the average of all local signals. The goal of the protocol is to compute (estimate) such signal in a "fully" distributed and decentralized way.
 - **Protocol order** *m*: Determines the order of the high-order sliding mode. This is determined by the m-th derivative of the signals known to be bounded. Also, this determines how many derivatives of the average signal can be computed by the protocol.
-- **Protocol's internal state** *x<sub>i,&mu;</sub>(t)*: Each node *i* has internal variables *x<sub>i(t),0</sub>,...,x<sub>i,m</sub>(t)* whose dynamics determine the protocol.
+- **Protocol's internal state** *x<sub>i,&mu;</sub>(t)*: Each node *i* has internal variables *x<sub>i,0</sub>(t),...,x<sub>i,m</sub>(t)* whose dynamics determine the protocol.
 - **Outputs** *y<sub>i,&mu;</sub>(t)*:  These are the actual outputs of the protocol at node *i*. After the protocol converges, *y<sub>i,&mu;</sub>(t)* converges to the *&mu;*-th derivative of the goal signal.
 
 The main protocols are enlisted as follows:
