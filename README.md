@@ -42,9 +42,21 @@ The main protocols are enlisted as follows:
 }
 ```
 
-- **Modulated EDCHO/REDCHO**: This protocol version modulates the local signals to start from the trivial signal 0 and deforms them towards the actual goal signal of interest after a prescribed time. For appropriate tunning, the protocol begins at consensus (at the useless zero signal) but maintains consensus while the signals are being deformed. The result is that the protocol is already at consensus when the deformation finishes. The previous allows the protocol to converge in a *prescribed time*. The main drawback is that this protocol requires more conservative (more significant gains) for a smaller prescribed deadline. The theoretical details are provided in our paper (**comming soon**).
+- **Modulated EDCHO/REDCHO**: This protocol version modulates the local signals to start from the trivial signal 0 and deforms them towards the actual goal signal of interest after a prescribed time. For appropriate tunning, the protocol begins at consensus (at the useless zero signal) but maintains consensus while the signals are being deformed. The result is that the protocol is already at consensus when the deformation finishes. The previous allows the protocol to converge in a *prescribed time*. The main drawback is that this protocol requires more conservative (more significant gains) for a smaller prescribed deadline. The theoretical details are provided in our paper either at the [publisher link](https://ieeexplore.ieee.org/document/9792300) or in [arxiv](https://arxiv.org/abs/2206.11608). *If you use this protocol in academic work, please cite the publisher version of our article as*:
 
-- **MDVO**: The Modulated Distributed Virtual Observer. In this case, the nodes are separated in leaders and followers. The followers don't have a local time-varying signal. The goal signal is the average of the leaders signals only. The MDVO performs the computation based on two modulated EDCHO/REDCHO blocks. The actual output of the MDVO is the ratio of the previous block outputs. The theoretical details are provided in our paper (**comming soon**).
+```bibtex
+@ARTICLE{mdvo2022,
+  author={Aldana-Lopez, Rodrigo and Gomez-Gutierrez, David and Aragues, Rosario and Sagues, Carlos},
+  journal={IEEE Control Systems Letters}, 
+  title={Dynamic Consensus With Prescribed Convergence Time for Multileader Formation Tracking}, 
+  year={2022},
+  volume={6},
+  number={},
+  pages={3014-3019},
+  doi={10.1109/LCSYS.2022.3181784}}
+```
+
+- **MDVO**: The Modulated Distributed Virtual Observer. In this case, the nodes are separated in leaders and followers. The followers don't have a local time-varying signal. The goal signal is the average of the leaders signals only. The MDVO performs the computation based on two modulated EDCHO/REDCHO blocks. The actual output of the MDVO is the ratio of the previous block outputs. The theoretical details are provided in the same paper as for the Modulated EDCHO/REDCHO.
 
 ---
 ## Test files
